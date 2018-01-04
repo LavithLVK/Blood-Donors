@@ -5,19 +5,19 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home"
-            android:title="Import" />
+            android:title="@string/home" />
         <item
             android:id="@+id/nav_add_donor"
             android:icon="@drawable/ic_add_donor"
-            android:title="Gallery" />
+            android:title="@string/add_donor" />
         <item
             android:id="@+id/nav_view"
             android:icon="@drawable/ic_view"
-            android:title="Slideshow" />
+            android:title="@string/view_donors" />
         <item
             android:id="@+id/nav_about"
             android:icon="@drawable/ic_about"
-            android:title="Tools" />
+            android:title="@string/about" />
     </group>
 
     <!--<item android:title="Communicate">-->
