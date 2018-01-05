@@ -3,6 +3,7 @@ package com.example.lavithedam.blooddonors.activity.activity
 import android.app.Activity
 import android.app.FragmentManager
 import android.app.FragmentTransaction
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
@@ -19,6 +20,7 @@ import android.widget.GridView
 import com.example.lavithedam.blooddonors.BloodCount
 import com.example.lavithedam.blooddonors.R
 import com.example.lavithedam.blooddonors.adapter.HomeGridAdapter
+import com.example.lavithedam.blooddonors.fragment.AddDonorFragment
 
 var mcurrentActivity: Activity? = null
 
@@ -41,14 +43,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
         setCurrentActivity(this)
         var homeGridView: GridView
-        homeGridView = findViewById<GridView>(R.id.gridViewHome)
+        homeGridView = findViewById(R.id.gridViewHome)
         setSupportActionBar(toolbar)
 
-        val fab = findViewById<View>(R.id.fab) as FloatingActionButton
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
+//        val fab = findViewById<View>(R.id.fab) as FloatingActionButton
+//        fab.setOnClickListener { view ->
+//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                    .setAction("Action", null).show()
+//        }
 
         val drawer = findViewById<View>(R.id.drawer_layout) as DrawerLayout
         val toggle = ActionBarDrawerToggle(
@@ -79,9 +81,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         val id = item.itemId
 
 
@@ -96,10 +95,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val id = item.itemId
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
+//            if(getCurrentActivity()!=this){
+//                var intent : Intent = Intent(this, MA)
+
+//            }
         } else if (id == R.id.nav_add_donor) {
+            var addDonorFragment : AddDonorFragment = AddDonorFragment.newInstance("","")
 
         } else if (id == R.id.nav_view) {
+
 
         } else if (id == R.id.nav_about) {
 
@@ -111,7 +115,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     fun initializeGroupList() {
-        homeGridContentList.add(BloodCount("A+", 0))
+        homeGridContentList.add(BloodCount("A+", 123125))
         homeGridContentList.add(BloodCount("A-", 0))
         homeGridContentList.add(BloodCount("B+", 0))
         homeGridContentList.add(BloodCount("B-", 0))

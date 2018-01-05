@@ -47,18 +47,15 @@ class HomeGridAdapter : ArrayAdapter<BloodCount> {
         }
         viewHolder.bloodGroup?.setText(bloodGroupCountsList.get(position).bloodGroup)
         viewHolder.bloodGroup?.setOnClickListener(View.OnClickListener {
-            openBloodCount(bloodGroupCountsList.get(position).getDonorCount())
+            openBloodCount(bloodGroupCountsList.get(position))
         })
         return tempView
     }
 
-    fun openBloodCount(donorCount: Long) {
+    fun openBloodCount(bloodCount: BloodCount) {
         fragmentManager = getCurrentActivity()?.fragmentManager
         fragmentTransaction = fragmentManager?.beginTransaction()
-        var fragment: BloodCountFragment = BloodCountFragment()
-        var bundle: Bundle = Bundle()
-        bundle.putLong("donor_count", donorCount)
-        fragment.arguments = bundle
+        var fragment: BloodCountFragment = BloodCountFragment(bloodCount)
         fragment.show(fragmentManager,"My fragment")
     }
 
